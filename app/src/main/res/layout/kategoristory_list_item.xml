@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_list">
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin">
+
+
+            <TextView
+                android:id="@+id/title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text"/>
+            <TextView
+                android:id="@+id/lastupdate"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:layout_below="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondary_text"/>
+
+            <LinearLayout
+                android:layout_below="@+id/lastupdate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight ="0.15"
+                    android:layout_height="20dp"
+                    android:tint="@color/secondary_text"
+                    android:src="@drawable/ic_format_read"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:id="@+id/total_read"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textSize="13sp"
+                    android:layout_width="0dp"
+                    android:layout_weight ="0.3"
+                    android:layout_height="20dp"
+                    android:textColor="@color/secondary_text"
+                    android:gravity="start"
+                    android:layout_gravity="center_horizontal"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight ="0.15"
+                    android:layout_height="20dp"
+                    android:tint="@color/secondary_text"
+                    android:src="@drawable/ic_format_like"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/total_like"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textSize="13sp"
+                    android:layout_width="0dp"
+                    android:layout_weight ="0.3"
+                    android:layout_height="20dp"
+                    android:textColor="@color/secondary_text"
+                    android:gravity="start"
+                    android:layout_gravity="center_horizontal"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight ="0.15"
+                    android:layout_height="20dp"
+                    android:tint="@color/secondary_text"
+                    android:src="@drawable/ic_format_comment"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/total_comment"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textSize="13sp"
+                    android:layout_width="0dp"
+                    android:layout_weight ="0.3"
+                    android:layout_height="20dp"
+                    android:textColor="@color/secondary_text"
+                    android:gravity="start"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:textSize="15sp"
+                    android:layout_width="0dp"
+                    android:layout_weight ="1"
+                    android:layout_height="20dp"
+                    android:textColor="@color/secondary_text"
+                    android:gravity="start"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

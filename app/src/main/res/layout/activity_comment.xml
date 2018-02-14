@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/background"
+    tools:context="com.android.fpad.ui.stories.CommentStory">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/warnaDark"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_views"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_marginBottom="50dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <LinearLayout
+        android:id="@+id/tools"
+        android:background="@drawable/background_bottomview"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight ="0.2"
+            android:layout_height="48dp"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@null"
+            android:scaleType="center"/>
+        <EditText android:id="@+id/var_comment"
+            android:layout_width="0dp"
+            android:layout_weight ="5"
+            android:layout_height="48dp"
+            android:maxLength="140"
+            android:scaleType="center"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/secondary_text"
+            android:textColorHighlight="@color/com_facebook_blue"
+            android:hint="@string/placeholder_post_comment"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight ="1"
+            android:layout_height="48dp"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@null"
+            android:onClick="post"
+            android:scaleType="center"
+            android:src="@drawable/ic_format_send" />
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

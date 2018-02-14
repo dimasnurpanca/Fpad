@@ -1,0 +1,81 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@null"
+        android:onClick="undo"
+        android:scaleType="center"
+        android:src="@drawable/ic_format_undo" />
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@null"
+        android:onClick="redo"
+        android:scaleType="center"
+        android:src="@drawable/ic_format_redo" />
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@null"
+        android:onClick="setBold"
+        android:scaleType="center"
+        android:src="@drawable/ic_format_bold" />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@null"
+        android:onClick="setItalic"
+        android:scaleType="center"
+        android:src="@drawable/ic_format_italic" />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@null"
+        android:onClick="setUnderline"
+        android:scaleType="center"
+        android:src="@drawable/ic_format_underline" />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@null"
+        android:onClick="setStrikethrough"
+        android:tint="@color/yellowDark"
+        android:scaleType="center"
+        android:src="@drawable/ic_format_strikethrough" />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@null"
+        android:onClick="setBullet"
+        android:scaleType="center"
+        android:src="@drawable/ic_format_bullet" />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@null"
+        android:onClick="setQuote"
+        android:scaleType="center"
+        android:tint="@color/yellowDark"
+        android:src="@drawable/ic_format_quote" />
+
+
+
+
+</LinearLayout>
