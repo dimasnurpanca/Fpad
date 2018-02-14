@@ -28,7 +28,6 @@ public class FragmentD extends Fragment {
     RecyclerView list;
     APIInterface apiInterface;
     ArrayList<StoryList> dataModels;
-    private static RecyclerAdapter adapter;
 
     public FragmentD() {
         apiInterface = APIClient.getClient().create(APIInterface.class); //retrofit
@@ -39,7 +38,7 @@ public class FragmentD extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final ProgressDialog progressDialog;
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage(getResources().getString(R.string.loadingprogress));
+        progressDialog.setMessage(getResources().getString(R.string.loading));
         progressDialog.show();
         View view = inflater.inflate(R.layout.fragment, container, false);
         dataModels= new ArrayList<>();
