@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -161,7 +162,7 @@ public class EditStoryActivity extends AppCompatActivity {
 
 
 
-
+        editor.setTextColor(Color.BLACK);
 
 
     }
@@ -233,6 +234,8 @@ public class EditStoryActivity extends AppCompatActivity {
         final ProgressDialog progressDialog;
         progressDialog = new ProgressDialog(EditStoryActivity.this);
         progressDialog.setMessage(getResources().getString(R.string.loadingprogress));
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
         progressDialog.show();
 
         RequestBody val_id = RequestBody.create(MediaType.parse("multipart/form-data"), story_id);
@@ -334,6 +337,15 @@ public class EditStoryActivity extends AppCompatActivity {
         final List<String> kategori = new ArrayList<>();
         final List<String> kategori_id = new ArrayList<>();
 
+
+        final ProgressDialog progressDialog;
+        progressDialog = new ProgressDialog(EditStoryActivity.this);
+        progressDialog.setMessage(getResources().getString(R.string.loading));
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+
         Call<List<KategoriList>> call3 = apiInterface.doGetKategoriList();
         call3.enqueue(new Callback<List<KategoriList>>() {
             @Override
@@ -381,11 +393,13 @@ public class EditStoryActivity extends AppCompatActivity {
                     dialog.show();
                 }
 
+                progressDialog.dismiss();
             }
 
             @Override
             public void onFailure(Call<List<KategoriList>> call, Throwable t) {
                 call.cancel();
+                progressDialog.dismiss();
             }
         });
 

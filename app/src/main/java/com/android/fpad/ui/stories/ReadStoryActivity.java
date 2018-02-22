@@ -156,6 +156,8 @@ public class ReadStoryActivity extends AppCompatActivity {
             final ProgressDialog progressDialog;
             progressDialog = new ProgressDialog(ReadStoryActivity.this);
             progressDialog.setMessage(getResources().getString(R.string.loading));
+            progressDialog.setIndeterminate(false);
+            progressDialog.setCancelable(false);
             progressDialog.show();
             RequestBody val_type = RequestBody.create(MediaType.parse("multipart/form-data"), type);
             RequestBody val_email = RequestBody.create(MediaType.parse("multipart/form-data"), usrmail);

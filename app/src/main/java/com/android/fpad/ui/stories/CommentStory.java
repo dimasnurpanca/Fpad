@@ -96,6 +96,8 @@ public class CommentStory extends AppCompatActivity {
             final ProgressDialog progressDialog;
             progressDialog = new ProgressDialog(CommentStory.this);
             progressDialog.setMessage(getResources().getString(R.string.loading));
+            progressDialog.setIndeterminate(false);
+            progressDialog.setCancelable(false);
             progressDialog.show();
 
             RequestBody val_id = RequestBody.create(MediaType.parse("multipart/form-data"), story_id);

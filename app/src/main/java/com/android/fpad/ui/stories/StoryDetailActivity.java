@@ -158,6 +158,8 @@ public class StoryDetailActivity extends AppCompatActivity {
         final ProgressDialog progressDialog;
         progressDialog = new ProgressDialog(StoryDetailActivity.this);
         progressDialog.setMessage(getResources().getString(R.string.loading));
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
         progressDialog.show();
         RequestBody val_first = RequestBody.create(MediaType.parse("multipart/form-data"), story_kategori);
         RequestBody val_type = RequestBody.create(MediaType.parse("multipart/form-data"), "kategori");
@@ -186,6 +188,8 @@ public class StoryDetailActivity extends AppCompatActivity {
         final ProgressDialog progressDialog;
         progressDialog = new ProgressDialog(StoryDetailActivity.this);
         progressDialog.setMessage(getResources().getString(R.string.loading));
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
         progressDialog.show();
         RequestBody val_first = RequestBody.create(MediaType.parse("multipart/form-data"), story_email);
         RequestBody val_type = RequestBody.create(MediaType.parse("multipart/form-data"), "fullname");
@@ -214,6 +218,8 @@ public class StoryDetailActivity extends AppCompatActivity {
             final ProgressDialog progressDialog;
             progressDialog = new ProgressDialog(StoryDetailActivity.this);
             progressDialog.setMessage(getResources().getString(R.string.loading));
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
             progressDialog.show();
             RequestBody val_type = RequestBody.create(MediaType.parse("multipart/form-data"), type);
             RequestBody val_email = RequestBody.create(MediaType.parse("multipart/form-data"), usrmail);

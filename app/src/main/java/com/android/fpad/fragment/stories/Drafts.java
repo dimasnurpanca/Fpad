@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.android.fpad.R;
 import com.android.fpad.adapter.stories.DraftsAdapter;
@@ -31,6 +32,7 @@ public class Drafts extends Fragment {
 
 
     RecyclerView list;
+    ProgressBar spinner;
     APIInterface apiInterface;
     ArrayList<StoryList> dataModels;
     private static DraftsAdapter adapter;
@@ -43,14 +45,12 @@ public class Drafts extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final ProgressDialog progressDialog;
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage(getResources().getString(R.string.loadingprogress));
-        progressDialog.show();
+
         View view = inflater.inflate(R.layout.fragment, container, false);
         dataModels= new ArrayList<>();
         list = (RecyclerView) view.findViewById(R.id.recycler_view);
-
+        spinner = (ProgressBar) view.findViewById(R.id.progressBar1);
+        spinner.setVisibility(View.VISIBLE);
         StoryActivity activity = (StoryActivity) getActivity();
         Call<List<StoryList>> call3 = apiInterface.doGetStoryUserList(activity.getEmail(),"Drafts");
         call3.enqueue(new Callback<List<StoryList>>() {
@@ -66,13 +66,13 @@ public class Drafts extends Fragment {
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
                 list.setLayoutManager(layoutManager);
                 list.setAdapter(adapter);
-                progressDialog.dismiss();
+                spinner.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<List<StoryList>> call, Throwable t) {
                 call.cancel();
-                progressDialog.dismiss();
+                spinner.setVisibility(View.GONE);
             }
         });
 

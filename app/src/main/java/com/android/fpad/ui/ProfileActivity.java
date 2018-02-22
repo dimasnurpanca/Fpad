@@ -123,6 +123,8 @@ public class ProfileActivity extends AppCompatActivity {
         final ProgressDialog progressDialog;
         progressDialog = new ProgressDialog(ProfileActivity.this);
         progressDialog.setMessage(getResources().getString(R.string.loadingprogress));
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
         progressDialog.show();
 
         RequestBody val_email = RequestBody.create(MediaType.parse("multipart/form-data"), usrmail);

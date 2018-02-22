@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_edit"
     android:fitsSystemWindows="true"
     tools:context=".ui.SignupActivity">
@@ -23,12 +24,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textColorHint="@color/secondary_text">
+            android:textColorHint="@color/secondary_text"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
             <EditText android:id="@+id/input_namalengkap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_text"
                 android:textColorHighlight="@color/primary_text"
+                android:textCursorDrawable="@drawable/color_cursor"
                 android:inputType="textPersonName"
                 android:hint="Nama Lengkap" />
         </android.support.design.widget.TextInputLayout>
@@ -39,14 +42,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textColorHint="@color/secondary_text">
+            android:textColorHint="@color/secondary_text"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
             <EditText android:id="@+id/input_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_text"
                 android:textColorHint="@color/primary_text"
                 android:textColorHighlight="@color/primary_text"
-                android:digits="abcdefghijklmnopqrstuvwxyz"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
                 android:hint="Username" />
         </android.support.design.widget.TextInputLayout>
 
@@ -58,13 +63,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textColorHint="@color/secondary_text">
+            android:textColorHint="@color/secondary_text"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_text"
                 android:textColorHint="@color/primary_text"
                 android:textColorHighlight="@color/primary_text"
+                android:textCursorDrawable="@drawable/color_cursor"
                 android:inputType="textEmailAddress"
                 android:hint="Email" />
         </android.support.design.widget.TextInputLayout>
@@ -78,13 +85,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textColorHint="@color/secondary_text">
+            android:textColorHint="@color/secondary_text"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
             <EditText android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_text"
                 android:textColorHint="@color/primary_text"
                 android:textColorHighlight="@color/primary_text"
+                android:textCursorDrawable="@drawable/color_cursor"
                 android:inputType="textPassword"
                 android:hint="Password"/>
         </android.support.design.widget.TextInputLayout>
@@ -95,13 +104,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textColorHint="@color/secondary_text">
+            android:textColorHint="@color/secondary_text"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
             <EditText android:id="@+id/input_reEnterPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_text"
                 android:textColorHint="@color/primary_text"
                 android:textColorHighlight="@color/primary_text"
+                android:textCursorDrawable="@drawable/color_cursor"
                 android:inputType="textPassword"
                 android:hint="Re-enter Password"/>
         </android.support.design.widget.TextInputLayout>

@@ -99,7 +99,7 @@
         <string name="kategori">Category</string>
         <string name="sub_kategori">Choose Category</string>
         <string name="editor_hint">Write Your Content Story Here&#8230;</string>
-
+    <string name="errorviewtext">Data Error</string>
 
 
 </resources>

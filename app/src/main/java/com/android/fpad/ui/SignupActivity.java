@@ -92,6 +92,8 @@ public class SignupActivity extends AppCompatActivity {
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Proses pendaftaran...");
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
         progressDialog.show();
 
         String username = _usernameText.getText().toString();
