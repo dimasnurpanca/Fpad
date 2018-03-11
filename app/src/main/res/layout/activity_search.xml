@@ -31,5 +31,13 @@
         android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-
+    <tr.xip.errorview.ErrorView
+        android:id="@+id/error_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:ev_retryText="Reload"
+        app:ev_retryColor="@android:color/holo_orange_dark"
+        app:ev_subtitle="@string/errorviewtext"
+        android:padding="10dp"/>
 </android.support.design.widget.CoordinatorLayout>

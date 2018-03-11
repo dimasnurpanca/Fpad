@@ -101,6 +101,10 @@ public interface APIInterface {
     Call<StoryRespond> delete(@Part("id") RequestBody id,@Part("uid") RequestBody uid,@Part("email") RequestBody email);
 
     @Multipart
+    @POST("deletelibrary.php")
+    Call<StoryRespond> deletelib(@Part("id") RequestBody id,@Part("email") RequestBody email);
+
+    @Multipart
     @POST("etc.php")
     Call<StoryRespond> vote(@Part("type") RequestBody type,@Part("email") RequestBody email,@Part("id") RequestBody id);
 

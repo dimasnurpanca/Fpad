@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -120,6 +121,7 @@ public class SettingsActivity extends AppCompatActivity {
     {
         if(usrname.equals(usrmail)){
             final EditText edittext = new EditText(context);
+            edittext.setTextColor(Color.BLACK);
             edittext.setHint("@username");
 
 
@@ -156,6 +158,7 @@ public class SettingsActivity extends AppCompatActivity {
     {
             final EditText edittext = new EditText(context);
             edittext.setText(nama);
+        edittext.setTextColor(Color.BLACK);
 
 
             edittext.setFilters(new InputFilter[]{new InputFilter.LengthFilter(35)});
@@ -248,7 +251,9 @@ public class SettingsActivity extends AppCompatActivity {
         final EditText oldpassword = new EditText(SettingsActivity.this);
         final EditText newpassword1 = new EditText(SettingsActivity.this);
         final EditText newpassword2 = new EditText(SettingsActivity.this);
-
+        oldpassword.setTextColor(Color.BLACK);
+        newpassword1.setTextColor(Color.BLACK);
+        newpassword2.setTextColor(Color.BLACK);
 
         oldpassword.setHint(getResources().getString(R.string.old_password));
         newpassword1.setHint(getResources().getString(R.string.new_password));
@@ -308,7 +313,7 @@ public class SettingsActivity extends AppCompatActivity {
     {
         final EditText edittext = new EditText(context);
         edittext.setHint(getResources().getString(R.string.forgot_hint));
-
+        edittext.setTextColor(Color.BLACK);
         edittext.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(context);
         alert.setTitle(getResources().getString(R.string.forgot_builder_header));

@@ -120,11 +120,15 @@ public class ReadStoryActivity extends AppCompatActivity {
         }else{
             if(vote){
                postvote("deletevote");
+                int t_like = Integer.valueOf(total_like.getText().toString()) -1;
+                total_like.setText(String.valueOf(t_like));
             }else{
                 postvote("addvote");
+                int t_like = Integer.valueOf(total_like.getText().toString()) +1;
+                total_like.setText(String.valueOf(t_like));
             }
 
-            reload();
+            //reload();
         }
     }
     public void comment(View v) {
@@ -142,7 +146,7 @@ public class ReadStoryActivity extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("text/plain");
         i.putExtra(Intent.EXTRA_SUBJECT, context.getString(applicationNameId));
-        String text = "Install this cool application: ";
+        String text = story_title+"\n"+story_content+"\n \n \n Install this cool application: ";
         String link = "https://play.google.com/store/apps/details?id=" + appPackageName;
         i.putExtra(Intent.EXTRA_TEXT, text + " " + link);
         startActivity(Intent.createChooser(i, "Share link:"));
@@ -186,7 +190,7 @@ public class ReadStoryActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<StoryRespond> call, Throwable t) {
-                    //progressDialog.dismiss();
+                    progressDialog.dismiss();
                 }
             });
             progressDialog.dismiss();

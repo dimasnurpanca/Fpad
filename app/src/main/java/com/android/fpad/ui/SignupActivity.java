@@ -156,22 +156,14 @@ public class SignupActivity extends AppCompatActivity {
 
     public void onSignupSuccess() {
        // Toast.makeText(getBaseContext(), "Register Success! Silahkan cek email anda untuk melakukan konfirmasi pendaftaran.", Toast.LENGTH_LONG).show();
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SignupActivity.this);
-        LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
-        final View dialogView = inflater.inflate(R.layout.popup, null);
-        dialogBuilder.setView(dialogView);
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("Registrasi Berhasil!");
+        builder.setMessage("Silahkan cek email Anda untuk Aktivasi account Fpad.");
 
-        final TextView symbol2 = (TextView) dialogView.findViewById(R.id.symbol2);
-        final TextView text = (TextView) dialogView.findViewById(R.id.text);
-        final CheckBox checkbox = (CheckBox) dialogView.findViewById(R.id.simpleCheckBox);
-
-        checkbox.setVisibility(View.GONE);
-        symbol2.setText("Registrasi Berhasil!");
-        text.setText("Silahkan cek email Anda untuk Aktivasi account Fpad.\n"
-        );
-        dialogBuilder.setNegativeButton("Tutup", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                //do something with edt.getText().toString();
+        //No Button
+        builder.setNegativeButton("Tutup", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 _signupButton.setEnabled(true);
                 setResult(RESULT_OK, null);
                 Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
@@ -181,89 +173,49 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-
-        final AlertDialog b = dialogBuilder.create();
-        b.show();
-        b.getWindow().setBackgroundDrawableResource(R.color.warnaLight);
-
-
-
-        Button buttonNegative = b.getButton(DialogInterface.BUTTON_NEGATIVE);
-        buttonNegative.setTextColor(ContextCompat.getColor(SignupActivity.this, R.color.colorPrimaryLight));
-        b.setCancelable(false);
-        b.setCanceledOnTouchOutside(false);
+       android.app.AlertDialog alertDialog = builder.create();
+       alertDialog.show();
 
 
 
     }
 
     public void onSignupFailed() {
-        //Toast.makeText(getBaseContext(), "Register Failed! Email/Username sudah terdaftar, silahkan gunakan email/username lain.", Toast.LENGTH_LONG).show();
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SignupActivity.this);
-        LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
-        final View dialogView = inflater.inflate(R.layout.popup, null);
-        dialogBuilder.setView(dialogView);
 
-        final TextView symbol2 = (TextView) dialogView.findViewById(R.id.symbol2);
-        final TextView text = (TextView) dialogView.findViewById(R.id.text);
-        final CheckBox checkbox = (CheckBox) dialogView.findViewById(R.id.simpleCheckBox);
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("Registrasi Tidak Berhasil!");
+        builder.setMessage("Email/Username sudah terdaftar, silahkan gunakan email/username lain.");
 
-        checkbox.setVisibility(View.GONE);
-        symbol2.setText("Registrasi Tidak Berhasil!");
-        text.setText("Email/Username sudah terdaftar, silahkan gunakan email/username lain.\n"
-        );
-        dialogBuilder.setNegativeButton("Tutup", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                //do something with edt.getText().toString();
+        //No Button
+        builder.setNegativeButton("Tutup", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
             }
         });
 
-
-        final AlertDialog b = dialogBuilder.create();
-        b.show();
-        b.getWindow().setBackgroundDrawableResource(R.color.warnaLight);
-
-
-
-        Button buttonNegative = b.getButton(DialogInterface.BUTTON_NEGATIVE);
-        buttonNegative.setTextColor(ContextCompat.getColor(SignupActivity.this, R.color.colorPrimaryLight));
-        b.setCancelable(false);
-        b.setCanceledOnTouchOutside(false);
+        android.app.AlertDialog alertDialog = builder.create();
+        alertDialog.show();
         _signupButton.setEnabled(true);
+
     }
 
     public void onSignupError() {
        // Toast.makeText(getBaseContext(), "Terjadi kesalahan! Silahkan cek ulang data pendaftaran anda.", Toast.LENGTH_LONG).show();
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SignupActivity.this);
-        LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
-        final View dialogView = inflater.inflate(R.layout.popup, null);
-        dialogBuilder.setView(dialogView);
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("Terjadi kesalahan!");
+        builder.setMessage("Silahkan cek ulang data pendaftaran anda.");
 
-        final TextView symbol2 = (TextView) dialogView.findViewById(R.id.symbol2);
-        final TextView text = (TextView) dialogView.findViewById(R.id.text);
-        final CheckBox checkbox = (CheckBox) dialogView.findViewById(R.id.simpleCheckBox);
-
-        checkbox.setVisibility(View.GONE);
-        symbol2.setText("Terjadi kesalahan!");
-        text.setText("Silahkan cek ulang data pendaftaran anda.\n"
-        );
-        dialogBuilder.setNegativeButton("Tutup", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                //do something with edt.getText().toString();
+        //No Button
+        builder.setNegativeButton("Tutup", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
             }
         });
 
-
-        final AlertDialog b = dialogBuilder.create();
-        b.show();
-        b.getWindow().setBackgroundDrawableResource(R.color.warnaLight);
-
-
-
-        Button buttonNegative = b.getButton(DialogInterface.BUTTON_NEGATIVE);
-        buttonNegative.setTextColor(ContextCompat.getColor(SignupActivity.this, R.color.colorPrimaryLight));
-        b.setCancelable(false);
-        b.setCanceledOnTouchOutside(false);
+        android.app.AlertDialog alertDialog = builder.create();
+        alertDialog.show();
         _signupButton.setEnabled(true);
     }
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,11 +41,14 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import tr.xip.errorview.ErrorView;
 
 
 public class SearchStoryActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.error_view)
+    ErrorView errorView;
     @BindView(R.id.recycler_views)
     RecyclerView recyclerView;
     Activity context = this;
@@ -123,24 +127,41 @@ public class SearchStoryActivity extends AppCompatActivity {
 
 
     private void loadJSON(String text){
+        final ProgressDialog progressDialog;
+        progressDialog = new ProgressDialog(SearchStoryActivity.this);
+        progressDialog.setMessage(getResources().getString(R.string.loading));
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
         dataModels= new ArrayList<>();
         Call<List<StoryList>> call3 = apiInterface.doGetStorySearch("search",text);
         call3.enqueue(new Callback<List<StoryList>>() {
             @Override
             public void onResponse(Call<List<StoryList>> call, Response<List<StoryList>> response) {
-
+                int totals= 0;
+                progressDialog.dismiss();
                 List<StoryList> jsonResponse = response.body();
                 for (int i = 0; i < jsonResponse.size(); i++) {
                     dataModels.add(new StoryList(jsonResponse.get(i).getId(),jsonResponse.get(i).getEmail(),jsonResponse.get(i).getKategori_id(),jsonResponse.get(i).getTitle(),jsonResponse.get(i).getDescription(),jsonResponse.get(i).getImage(),jsonResponse.get(i).getContent(),jsonResponse.get(i).getDate(),jsonResponse.get(i).getLast_update(),jsonResponse.get(i).getStatus(),jsonResponse.get(i).getRead(),jsonResponse.get(i).getLike(),jsonResponse.get(i).getComment()));
+                    totals++;
                 }
 
                 adapter = new SearchAdapter(dataModels,context);
                 recyclerView.setAdapter(adapter);
+                if(totals==0){
+                    errorView.setVisibility(View.VISIBLE);
+                    initErrorView();
+                }else{
+                    errorView.setVisibility(View.GONE);
+                }
             }
 
             @Override
             public void onFailure(Call<List<StoryList>> call, Throwable t) {
                 call.cancel();
+                progressDialog.dismiss();
+                errorView.setVisibility(View.VISIBLE);
+                initErrorView();
             }
         });
     }
@@ -169,6 +190,13 @@ public class SearchStoryActivity extends AppCompatActivity {
     {  // After a pause OR at startup
         super.onResume();
         //Refresh your stuff here
+    }
+
+    private void initErrorView() {
+        errorView.setTitle("Not Found\n");
+        errorView.setSubtitleVisible(true);
+        errorView.setRetryVisible(false);
+
     }
 
 }
